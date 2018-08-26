@@ -1,0 +1,8 @@
+site_name: SQL Stream Store
+theme: readthedocs
+repo_url: https://github.com/SqlStreamStore/SqlStreamStore
+strict: true
+
+pages:
+- Introduction: index.md
+- Quick Start:
