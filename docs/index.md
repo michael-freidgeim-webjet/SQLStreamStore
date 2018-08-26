@@ -1,6 +1,6 @@
 # Introduction
 
-SQLStreamStore is a .NET library to assist with developing applications that use
+SQL Stream Store is a .NET library to assist with developing applications that use
 event sourcing or wish to use stream based patterns over a relational database
 and existing operational infrastructure.
 
