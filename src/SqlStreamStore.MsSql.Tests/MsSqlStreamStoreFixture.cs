@@ -13,14 +13,18 @@ namespace SqlStreamStore
         private readonly string _schema;
         private readonly bool _deleteDatabaseOnDispose;
         public readonly string DatabaseName;
-        private readonly DockerSqlServerDatabase _databaseInstance;
+      // private readonly DockerSqlServerDatabase _databaseInstance;
+        private readonly ISqlServerDatabase _databaseInstance;
 
         public MsSqlStreamStoreFixture(string schema, bool deleteDatabaseOnDispose = true)
         {
             _schema = schema;
             _deleteDatabaseOnDispose = deleteDatabaseOnDispose;
             DatabaseName = $"StreamStoreTests-{Guid.NewGuid():n}";
-            _databaseInstance = new DockerSqlServerDatabase(DatabaseName);
+            // _databaseInstance = new DockerSqlServerDatabase(DatabaseName);
+            _databaseInstance = //Environment.OSVersion.IsWindows()
+                 (ISqlServerDatabase)new LocalSqlServerDatabase(DatabaseName);
+            //  : new DockerSqlServerDatabase(DatabaseName);
 
             ConnectionString = CreateConnectionString();
         }

@@ -31,24 +31,24 @@
                         streamStore = fixture.GetStreamStore().Result;
                         disposable = fixture;
                     })
-                .Add("Postgres (Docker)",
-                    () =>
-                    {
-                        var fixture = new PostgresStreamStoreFixture("dbo");
-                        Console.WriteLine(fixture.ConnectionString);
-                        streamStore = fixture.GetPostgresStreamStore(true).Result;
-                        disposable = fixture;
-                    })
-                .Add("Postgres (Server)",
-                    () =>
-                    {
-                        Console.Write("Enter the connection string: ");
-                        var connectionString = Console.ReadLine();
-                        var fixture = new PostgresStreamStoreFixture("dbo", connectionString);
-                        Console.WriteLine(fixture.ConnectionString);
-                        streamStore = fixture.GetPostgresStreamStore(true).Result;
-                        disposable = fixture;
-                    })
+                //.Add("Postgres (Docker)",
+                //    () =>
+                //    {
+                //        var fixture = new PostgresStreamStoreFixture("dbo");
+                //        Console.WriteLine(fixture.ConnectionString);
+                //        streamStore = fixture.GetPostgresStreamStore(true).Result;
+                //        disposable = fixture;
+                //    })
+                //.Add("Postgres (Server)",
+                //    () =>
+                //    {
+                //        Console.Write("Enter the connection string: ");
+                //        var connectionString = Console.ReadLine();
+                //        var fixture = new PostgresStreamStoreFixture("dbo", connectionString);
+                //        Console.WriteLine(fixture.ConnectionString);
+                //        streamStore = fixture.GetPostgresStreamStore(true).Result;
+                //        disposable = fixture;
+                //    })
                 .Display();
 
             return (

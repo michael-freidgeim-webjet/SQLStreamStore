@@ -5,6 +5,7 @@
     using System.Threading;
     using EasyConsole;
     using Serilog;
+    using SqlStreamStore;
 
     internal class Program
     {
@@ -17,7 +18,7 @@
 
             var cts = new CancellationTokenSource();
             Console.CancelKeyPress += (_, __) => cts.Cancel();
-
+            new AppendsReadsDeadlocks().Run(cts.Token);;
             Output.WriteLine(ConsoleColor.Yellow, "Choose a test:");
             new Menu()
                 .Add(
